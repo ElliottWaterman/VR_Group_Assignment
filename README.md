@@ -1,6 +1,8 @@
 # VR_Group_Assignment
 Immersive virtual environment in a ‘health’ context
 
+Chosen Topic: Address phobias - Aerophobia
+
 
 # Using Git / Github
 ## Setup
