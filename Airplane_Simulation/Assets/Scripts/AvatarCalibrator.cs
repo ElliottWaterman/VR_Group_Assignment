@@ -14,7 +14,7 @@ public class AvatarCalibrator : MonoBehaviour
             LeftHand = GameObject.Find("LeftHandAnchor");
 
         if (LeftHandAvatar == null)
-            LeftHandAvatar = transform.FindChild("hand_left").gameObject;
+            LeftHandAvatar = transform.Find("hand_left").gameObject;
     }
 
     // Update is called once per frame
