@@ -3,6 +3,13 @@ Immersive virtual environment in a ‘health’ context
 
 Chosen Topic: Address phobias - Aerophobia
 
+# Ideas/Links
+New Unity UI + OVR Look-Based Input: https://forums.oculusvr.com/developer/discussion/16710/new-unity-ui-ovr-look-based-input-howto
+Download: https://www.dropbox.com/s/q8zcylzs1ggt24n/LookInputSampleV6.zip?dl=0
+
+OVR Camera Rig and Hands: https://skarredghost.com/2017/01/03/getting-started-with-oculus-touch-and-avatar-sdk-in-unity/
+
+Interaction: https://unity3d.com/learn/tutorials/topics/virtual-reality/interaction-vr
 
 # Using Git
 ## Setup
