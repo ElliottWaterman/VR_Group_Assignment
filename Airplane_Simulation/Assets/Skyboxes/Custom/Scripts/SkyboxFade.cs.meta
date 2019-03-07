@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 3264951f474811148b67ed5ff3352783
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - BlendableSkyBox: {fileID: 2100000, guid: b375e1253b1fbc1499c81665a51a3185, type: 2}
+  - player: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
