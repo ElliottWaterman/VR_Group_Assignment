@@ -169,6 +169,14 @@ public class OVRGrabber : MonoBehaviour
         int refCount = 0;
         m_grabCandidates.TryGetValue(grabbable, out refCount);
         m_grabCandidates[grabbable] = refCount + 1;
+
+        // Highlight the object if using color grabbable
+        ColourGrabbable colourGrabbable = grabbable as ColourGrabbable;
+
+        if (colourGrabbable != null)
+        {
+            colourGrabbable.Highlight = true;
+        }
     }
 
     void OnTriggerExit(Collider otherCollider)
@@ -191,6 +199,14 @@ public class OVRGrabber : MonoBehaviour
         else
         {
             m_grabCandidates.Remove(grabbable);
+        }
+
+        // Un-highlight the object if using color grabbable
+        ColourGrabbable colourGrabbable = grabbable as ColourGrabbable;
+
+        if (colourGrabbable != null)
+        {
+            colourGrabbable.Highlight = false;
         }
     }
 

@@ -81,13 +81,15 @@ namespace OculusSampleFramework
             {
                 m_meshRenderers = this.GetComponentsInChildren<MeshRenderer>();
             }
-            m_color = new Color(
+
+            // Set random color to the object
+            /*m_color = new Color(
                 Random.Range(0.1f, 0.95f),
                 Random.Range(0.1f, 0.95f),
                 Random.Range(0.1f, 0.95f),
                 1.0f
             );
-            SetColor(m_color);
+            SetColor(m_color);*/
         }
 
         private void SetColor(Color color)
