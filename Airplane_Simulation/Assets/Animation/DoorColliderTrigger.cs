@@ -28,8 +28,11 @@ public class DoorColliderTrigger : MonoBehaviour {
         {
             if (OVRInput.GetDown(interactObject.GetInteractKey()))
             {
-                Debug.Log("We're in!");
+                // Use the object
                 interactObject.OnUse();
+
+                // Also update text to display object should be closed
+                interactObject.DisplayText();
             }
         }
     }

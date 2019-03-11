@@ -12,6 +12,15 @@ public class DoorUsable : UsableObject
     {
         doorTrigger = GetComponentInParent<DoorColliderTrigger>();
         animator = GetComponentInParent<Animator>();
+
+        if (doorTrigger == null)
+        {
+            Debug.Log("There is no door collider trigger in parent object");
+        }
+        if (animator == null)
+        {
+            Debug.Log("There is no animator in parent object");
+        }
     }
 
     private void DoorAnimationControl(string direction)

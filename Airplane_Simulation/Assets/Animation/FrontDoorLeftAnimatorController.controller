@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DoorsAnimatorController
+  m_Name: FrontDoorLeftAnimatorController
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Open
@@ -135,7 +135,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DoorOpen
+  m_Name: FrontDoorLeftOpen
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -162,7 +162,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DoorClose
+  m_Name: FrontDoorLeftClose
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
