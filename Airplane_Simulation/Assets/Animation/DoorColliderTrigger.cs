@@ -26,7 +26,7 @@ public class DoorColliderTrigger : MonoBehaviour {
     {
         if (playerEntered)
         {
-            if (OVRInput.GetDown(interactObject.GetInteractKey()))
+            if (interactObject.isInputPressed())
             {
                 // Use the object
                 interactObject.OnUse();

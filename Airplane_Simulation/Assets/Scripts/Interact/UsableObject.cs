@@ -13,7 +13,8 @@ public class UsableObject : MonoBehaviour
 
     // Default interact button
     // Set new interact input in child script start function
-    protected OVRInput.Button interactKey = OVRInput.Button.One;
+    protected OVRInput.Button interactButton = OVRInput.Button.One;
+    protected KeyCode interactKey = KeyCode.E;
 
     protected bool objectUsed = false;
 
@@ -34,9 +35,22 @@ public class UsableObject : MonoBehaviour
         this.interactText.enabled = false;
     }
 
-    public OVRInput.Button GetInteractKey()
+    public OVRInput.Button GetInteractButton()
+    {
+        return this.interactButton;
+    }
+    public KeyCode GetInteractKey()
     {
         return this.interactKey;
+    }
+
+    public Boolean isInputPressed()
+    {
+        if (OVRInput.GetDown(this.interactButton) || Input.GetKeyDown(this.interactKey))
+        {
+            return true;
+        }
+        return false;
     }
 
     protected void ToggleObjectUsed()

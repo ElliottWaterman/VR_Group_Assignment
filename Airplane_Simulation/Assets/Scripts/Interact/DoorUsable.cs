@@ -15,11 +15,11 @@ public class DoorUsable : UsableObject
 
         if (doorTrigger == null)
         {
-            Debug.Log("There is no door collider trigger in parent object");
+            Debug.LogError("There is no door collider trigger in parent object");
         }
         if (animator == null)
         {
-            Debug.Log("There is no animator in parent object");
+            Debug.LogError("There is no animator in parent object");
         }
     }
 
