@@ -68,7 +68,7 @@ git merge master
 ```
 It is now that __conflicts__ may emerge, if for example you have edited the same lines in a certain file as someone else who has committed to master. 
 
-It is __your job__ to resolve these changes (beacuse you are the one who wants to commit to master), so please take care to ensure that you __keep both your changes and the changes in master__. Once the conflicts have been resolved and the respective files saved:
+It is __your job__ to resolve these changes (because you are the one who wants to commit to master), so please take care to ensure that you __keep both your changes and the changes in master__. Once the conflicts have been resolved and the respective files saved:
 ```
   git add .
   git commit -m "Merge: resolved conflicts"
@@ -80,6 +80,7 @@ Finally, merge your branch into the master branch to have your changes pushed to
 ```
 git checkout master
 git merge branch_name
+git push
 ```
 Then, to continue working on your branch, simply switch to it again:
 ```
