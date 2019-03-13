@@ -10,7 +10,7 @@ public class DecidePlayerController : MonoBehaviour
     public GameObject FPSController;
     public GameObject canvasText;
 
-    GameObject canvasParent;
+    GameObject playerCanvasParent;
 
     // Start is called before the first frame update
     void Start()
@@ -18,23 +18,25 @@ public class DecidePlayerController : MonoBehaviour
         // Check Oculus headset does not exists and is present
         if (XRDevice.isPresent)
         {
-            Instantiate(OculusController, this.gameObject.transform);
+            // Instantiate player object and assign it, not the PREFAB (OculusController)
+            GameObject playerController = Instantiate(OculusController, this.gameObject.transform);
 
             // Assigns the parent game object of the canvas
-            canvasParent = OculusController.transform.GetChild(1).GetChild(0).GetChild(1).gameObject;
+            playerCanvasParent = playerController.transform.GetChild(1).GetChild(0).GetChild(1).gameObject;
 
             // Move the canvas object to the correct camera
-            canvasText.transform.parent = canvasParent.transform;
+            canvasText.transform.parent = playerCanvasParent.transform;
         }
         else
         {
-            Instantiate(FPSController, this.gameObject.transform);
+            // Instantiate player object and assign it, not the PREFAB (OculusController)
+            GameObject playerController = Instantiate(FPSController, this.gameObject.transform);
 
             // Assigns the parent game object of the canvas
-            canvasParent = FPSController.transform.GetChild(0).gameObject;
+            playerCanvasParent = playerController.transform.GetChild(0).gameObject;
 
             // Move the canvas object to the correct camera
-            canvasText.transform.parent = canvasParent.transform;
+            canvasText.transform.parent = playerCanvasParent.transform;
         }
     }
 }
