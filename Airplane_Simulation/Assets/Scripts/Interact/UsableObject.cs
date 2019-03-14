@@ -6,13 +6,15 @@ using UnityEngine.UI;
 
 public class UsableObject : MonoBehaviour
 {
-    protected const string OPEN_STRING = "Open";
-    protected const string CLOSE_STRING = "Close";
 
     public Text interactText;
 
     // Default interact button
     // Set new interact input in child script start function
+
+    protected const string OPEN_STRING = "Open";
+    protected const string CLOSE_STRING = "Close";
+
     protected OVRInput.Button interactButton = OVRInput.Button.One;
     protected KeyCode interactKey = KeyCode.E;
 
@@ -22,6 +24,7 @@ public class UsableObject : MonoBehaviour
     {
         // Cant do specific action here so new "objUsable" script always needs to be created
     }
+
 
     public virtual void DisplayText()
     {
