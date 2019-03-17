@@ -3,6 +3,9 @@ Immersive virtual environment in a ‘health’ context
 
 Chosen Topic: Address phobias - Aerophobia
 
+VR Plan in Google Docs:
+https://docs.google.com/document/d/1yWoC3ddMJ6CFyRSNvNOk2qZzEkO5hmNihGi_bhzrsfg/edit?usp=sharing
+
 # Ideas/Links
 New Unity UI + OVR Look-Based Input: https://forums.oculusvr.com/developer/discussion/16710/new-unity-ui-ovr-look-based-input-howto
 Download: https://www.dropbox.com/s/q8zcylzs1ggt24n/LookInputSampleV6.zip?dl=0
