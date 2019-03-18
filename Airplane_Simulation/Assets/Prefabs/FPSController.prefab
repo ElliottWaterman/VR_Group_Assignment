@@ -302,6 +302,7 @@ GameObject:
   - component: {fileID: 988869928}
   - component: {fileID: 988869927}
   - component: {fileID: 1887703149907541502}
+  - component: {fileID: 3513227744797855524}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -372,7 +373,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988869925}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &988869927
 Behaviour:
   m_ObjectHideFlags: 0
@@ -477,3 +478,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3513227744797855524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988869925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfeb392ab1a41f4e97673c3785a7499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugMode: 1
+  shakeAmount: 10
+  shakeDuration: 20
+  smooth: 0
+  smoothAmount: 0.1
