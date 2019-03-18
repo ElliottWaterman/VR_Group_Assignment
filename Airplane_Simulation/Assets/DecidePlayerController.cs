@@ -10,7 +10,8 @@ public class DecidePlayerController : MonoBehaviour
     public GameObject FPSController;
     public GameObject canvasText;
 
-    GameObject playerCanvasParent;
+    private GameObject playerController;
+    private GameObject playerCanvasParent;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class DecidePlayerController : MonoBehaviour
         if (XRDevice.isPresent)
         {
             // Instantiate player object and assign it, not the PREFAB (OculusController)
-            GameObject playerController = Instantiate(OculusController, this.gameObject.transform);
+            playerController = Instantiate(OculusController, this.gameObject.transform);
 
             // Assigns the parent game object of the canvas
             playerCanvasParent = playerController.transform.GetChild(1).GetChild(0).GetChild(1).gameObject;
@@ -30,7 +31,7 @@ public class DecidePlayerController : MonoBehaviour
         else
         {
             // Instantiate player object and assign it, not the PREFAB (OculusController)
-            GameObject playerController = Instantiate(FPSController, this.gameObject.transform);
+            playerController = Instantiate(FPSController, this.gameObject.transform);
 
             // Assigns the parent game object of the canvas
             playerCanvasParent = playerController.transform.GetChild(0).gameObject;

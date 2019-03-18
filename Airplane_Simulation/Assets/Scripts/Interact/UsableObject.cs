@@ -8,6 +8,8 @@ public class UsableObject : MonoBehaviour
 {
     protected const string OPEN_STRING = "Open";
     protected const string CLOSE_STRING = "Close";
+    protected const string ON_STRING = "On";
+    protected const string OFF_STRING = "Off";
 
     public Text interactText;
 
