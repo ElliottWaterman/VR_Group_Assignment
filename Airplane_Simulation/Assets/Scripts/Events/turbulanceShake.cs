@@ -1,89 +1,74 @@
-﻿///Daniel Moore (Firedan1176) - Firedan1176.webs.com/
-///26 Dec 2015
-///
-///Shakes camera parent object
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class turbulanceShake : MonoBehaviour
+public class TurbulanceShake : MonoBehaviour
 {
+    // Transform of the camera to shake. Grabs the gameObject's transform
+    // if null.
+    public Transform camTransform;
+    public AudioSource turbulanceSample;
+    private bool sleep = false;
+    public float sleeptime;
 
-    public bool debugMode = false;//Test-run/Call ShakeCamera() on start
+    // How long the object should shake for.
+    public float shakeDuration = 10f;
 
-    public float shakeAmount;//The amount to shake this frame.
-    public float shakeDuration;//The duration this frame.
+    // Amplitude of the shake. A larger value shakes the camera harder.
+    public float shakeAmount = 0.5f;
+    public float decreaseFactor = 0.5f;
 
-    //Readonly values...
-    float shakePercentage;//A percentage (0-1) representing the amount of shake to be applied when setting rotation.
-    float startAmount;//The initial shake amount (to determine percentage), set when ShakeCamera is called.
-    float startDuration;//The initial shake duration, set when ShakeCamera is called.
+    Vector3 originalPos;
 
-    bool isRunning = false; //Is the coroutine running right now?
-
-    public bool smooth;//Smooth rotation?
-    public float smoothAmount = 0.5f;//Amount to smooth
-
-    void Start()
-    {
-
-        if (debugMode) ShakeCamera(startAmount, startDuration);
+    private void Start(){
+        Debug.Log("Start");
+        
     }
+    void Awake(){
 
+        ulong sampleWaitTime = Convert.ToUInt64(sleeptime) * 44100; // Converts to a 44100hz sample eg 44100 == 1 second
+        Debug.Log("Print Shit: " + sampleWaitTime);
 
-    void ShakeCamera()
-    {
-        Debug.Log("Shake no param");
-        startAmount = shakeAmount;//Set default (start) values
-        startDuration = shakeDuration;//Set default (start) values
-
-        if (!isRunning) StartCoroutine(Shake());//Only call the coroutine if it isn't currently running. Otherwise, just set the variables.
-    }
-
-    public void ShakeCamera(float amount, float duration)
-    {
-       
-        shakeAmount += amount;//Add to the current amount.
-        startAmount = shakeAmount;//Reset the start amount, to determine percentage.
-        shakeDuration += duration;//Add to the current time.
-        startDuration = shakeDuration;//Reset the start time.
-        Debug.Log("Shake it");
-        Debug.Log("Duration: " + shakeDuration);
-        Debug.Log("Amount: " + shakeAmount);
-
-        if (!isRunning) { 
-
-           
-            StartCoroutine(Shake());//Only call the coroutine if it isn't currently running. Otherwise, just set the variables.
-        }
-    }
-
-
-    IEnumerator Shake()
-    {
-        isRunning = true;
-     
-        while (shakeDuration > 0.01f)
+        turbulanceSample.Play(sampleWaitTime);
+        StartCoroutine(Sleep()); 
+        Debug.Log("Awake");
+        if (camTransform == null)
         {
-            Vector3 rotationAmount = Random.insideUnitSphere * shakeAmount;//A Vector3 to add to the Local Rotation
-            rotationAmount.z = 0;//Don't change the Z; it looks funny.
-
-            shakePercentage = shakeDuration / startDuration;//Used to set the amount of shake (% * startAmount).
-
-            shakeAmount = startAmount * shakePercentage;//Set the amount of shake (% * startAmount).
-            shakeDuration = Mathf.Lerp(shakeDuration, 0, Time.deltaTime);//Lerp the time, so it is less and tapers off towards the end.
-
-
-            if (smooth)
-                transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(rotationAmount), Time.deltaTime * smoothAmount);
-            else
-                transform.localRotation = Quaternion.Euler(rotationAmount);//Set the local rotation the be the rotation amount.
-
-            yield return null;
+            camTransform = GetComponent(typeof(Transform)) as Transform;
         }
-        Debug.Log("No longer shakeing");
-        transform.localRotation = Quaternion.identity;//Set the local rotation to 0 when done, just to get rid of any fudging stuff.
-        isRunning = false;
     }
 
+    void OnEnable()
+    {
+        Debug.Log("OnEnable");
+        originalPos = camTransform.localPosition;
+    }
+
+    IEnumerator Sleep() {
+        
+        sleep = true;
+        turbulanceSample = GetComponent<AudioSource>();
+        yield return new WaitForSeconds(sleeptime);
+        
+        Debug.Log("Turbulance Sample");
+        
+        Debug.Log("Fak this why is there no .sleep function");
+        sleep = false;
+    }
+
+    void Update()
+    {
+        Debug.Log("Update");
+        if (shakeDuration > 0 && sleep == false)
+        {   
+            camTransform.localPosition = originalPos + UnityEngine.Random.insideUnitSphere * shakeAmount;
+
+            shakeDuration -= Time.deltaTime * decreaseFactor;
+        }
+        else if(sleep == false)
+        {
+            shakeDuration = 0f;
+            camTransform.localPosition = originalPos;
+        }
+    }
 }
