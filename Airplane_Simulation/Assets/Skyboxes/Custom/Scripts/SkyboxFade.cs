@@ -14,7 +14,6 @@ public class SkyboxFade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //use the camera tagged as main if no camera is assigned
         if (player == null)
         {
             Debug.Log("Player not found. Attempting to use Player tag.");
