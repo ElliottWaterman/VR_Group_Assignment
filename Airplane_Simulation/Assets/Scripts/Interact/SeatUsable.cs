@@ -38,13 +38,35 @@ public class SeatUsable : UsableObject
     {
         if (playerEntered)
         {
-            if (this.isInputPressed())
+            // If input pressed and plane is idle then sit down or stand up
+            if (this.isInputPressed() && areoplaneAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlaneIdle"))
             {
                 // Use the object
                 this.OnUse();
+            }
 
-                // Also update text to display object should be closed
+            // If sat down the position needs to be updated to keep player on seat
+            if (objectUsed)
+            {
+                // Lock instantiated player to seat position
+                playerTransform.position = this.gameObject.transform.position;
+
+                // Lock player hierarchy to seat
+                //player.transform.position = this.gameObject.transform.position;
+            }
+
+            Debug.Log(areoplaneAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlaneIdle"));
+
+            // If the plane is idle the player can see text to stand up and move
+            if (areoplaneAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlaneIdle"))
+            {
+                // Show interact text on the screen
                 this.DisplayText();
+            }
+            else
+            {
+                // Hide interact text on the screen
+                this.HideText();
             }
         }
     }
@@ -62,8 +84,8 @@ public class SeatUsable : UsableObject
             // Start animations
             PlaneAnimationControl(TAXI_TO_RUNWAY);
 
-            // Change the camera position and rotation.
-            Camera.main.transform.rotation = Quaternion.Euler(65, -105, 0);
+            // Hide interact text on the screen
+            this.HideText();
         }
         // Player is present and is sat down
         else if (playerEntered && objectUsed)
@@ -72,6 +94,9 @@ public class SeatUsable : UsableObject
 
             // Stand up
             StandUp();
+
+            // Show interact text on the screen
+            this.DisplayText();
         }
     }
 
@@ -82,10 +107,12 @@ public class SeatUsable : UsableObject
 
     private void SitDown()
     {
+        // Set position just before sitting down so when stand up it moves there
+        player.transform.position = playerTransform.position;
+
         // Set player parent transform to seat transform
         player.transform.parent = this.gameObject.transform;
         
-
         // Set instantiated player transform to seat transform
         playerTransform.parent = this.gameObject.transform;
     }
