@@ -25,6 +25,7 @@ public class UsableObject : MonoBehaviour
         // Cant do specific action here so new "objUsable" script always needs to be created
     }
 
+
     public virtual void DisplayText()
     {
         // Default interact text
