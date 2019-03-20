@@ -21,17 +21,13 @@ public class TurbulanceShake : MonoBehaviour
     Vector3 originalPos;
 
     private void Start(){
-        Debug.Log("Start");
         
     }
     void Awake(){
 
         ulong sampleWaitTime = Convert.ToUInt64(sleeptime) * 44100; // Converts to a 44100hz sample eg 44100 == 1 second
-        Debug.Log("Print Shit: " + sampleWaitTime);
-
         turbulanceSample.Play(sampleWaitTime);
         StartCoroutine(Sleep()); 
-        Debug.Log("Awake");
         if (camTransform == null)
         {
             camTransform = GetComponent(typeof(Transform)) as Transform;
@@ -40,7 +36,6 @@ public class TurbulanceShake : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("OnEnable");
         originalPos = camTransform.localPosition;
     }
 
@@ -51,8 +46,6 @@ public class TurbulanceShake : MonoBehaviour
         yield return new WaitForSeconds(sleeptime);
         
         Debug.Log("Turbulance Sample");
-        
-        Debug.Log("Fak this why is there no .sleep function");
         sleep = false;
     }
 
