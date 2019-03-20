@@ -7,13 +7,17 @@ public class SeatUsable : UsableObject
     private const string SIT_DOWN = "Sit Down on";
     private const string STAND_UP = "Stand Up from";
     private const string TAXI_TO_RUNWAY = "Taxi";
+    private const string LANDING = "Landing";
 
     public GameObject player;
 
     private Transform playerTransform;
     private Animator areoplaneAnimator;
+    private AudioSource audioSource;
 
     private bool playerEntered = false;
+
+    private int animationCounter = 0;
 
     // Use this for initialization
     void Start ()
@@ -44,20 +48,6 @@ public class SeatUsable : UsableObject
                 // Use the object
                 this.OnUse();
             }
-
-            Debug.Log("Plane Idle: " + areoplaneAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlaneIdle"));
-
-            // If the plane is idle the player can see text to stand up and move
-            if (areoplaneAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlaneIdle"))
-            {
-                // Show interact text on the screen
-                this.DisplayText();
-            }
-            else
-            {
-                // Hide interact text on the screen
-                this.HideText();
-            }
         }
 
         // Always update the player position to seat if sat down
@@ -68,6 +58,18 @@ public class SeatUsable : UsableObject
 
             // Lock player hierarchy to seat
             //player.transform.position = this.gameObject.transform.position;
+        }
+
+        // Always check that the plane is idle so the player can see text to stand up and move
+        if (areoplaneAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlaneIdle"))
+        {
+            // Show interact text on the screen
+            this.DisplayText();
+        }
+        else
+        {
+            // Hide interact text on the screen
+            this.HideText();
         }
     }
 
@@ -82,7 +84,21 @@ public class SeatUsable : UsableObject
             SitDown();
 
             // Start animations
-            PlaneAnimationControl(TAXI_TO_RUNWAY);
+            if (animationCounter == 0)
+            {
+                PlaneAnimationControl(TAXI_TO_RUNWAY);
+
+                audioSource.Play();
+                audioSource.volume = 0.52f;
+
+                animationCounter++;
+            }
+            // Walking around during flight then sit down to land
+            else if (animationCounter == 1)
+            {
+                PlaneAnimationControl(LANDING);
+                animationCounter++;
+            }
 
             // Hide interact text on the screen
             this.HideText();
