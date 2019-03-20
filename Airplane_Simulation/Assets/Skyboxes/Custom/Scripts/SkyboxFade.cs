@@ -25,6 +25,11 @@ public class SkyboxFade : MonoBehaviour
             }
 
         }
+        else
+        {
+            // Set the player equal to the instantiated  player controller (ie where the player is)
+            player = player.transform.GetChild(0).gameObject;
+        }
     }
 
     // Update is called once per frame
