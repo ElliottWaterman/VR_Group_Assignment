@@ -18,7 +18,7 @@ public class SeatUsable : UsableObject
     // Use this for initialization
     void Start ()
     {
-        playerTransform = player.transform.GetChild(0);
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         areoplaneAnimator = GameObject.FindGameObjectWithTag("Aeroplane").GetComponent<Animator>();
 
@@ -45,17 +45,7 @@ public class SeatUsable : UsableObject
                 this.OnUse();
             }
 
-            // If sat down the position needs to be updated to keep player on seat
-            if (objectUsed)
-            {
-                // Lock instantiated player to seat position
-                playerTransform.position = this.gameObject.transform.position;
-
-                // Lock player hierarchy to seat
-                //player.transform.position = this.gameObject.transform.position;
-            }
-
-            Debug.Log(areoplaneAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlaneIdle"));
+            Debug.Log("Plane Idle: " + areoplaneAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlaneIdle"));
 
             // If the plane is idle the player can see text to stand up and move
             if (areoplaneAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlaneIdle"))
@@ -68,6 +58,16 @@ public class SeatUsable : UsableObject
                 // Hide interact text on the screen
                 this.HideText();
             }
+        }
+
+        // Always update the player position to seat if sat down
+        if (objectUsed)
+        {
+            // Lock instantiated player to seat position
+            playerTransform.position = this.gameObject.transform.position;
+
+            // Lock player hierarchy to seat
+            //player.transform.position = this.gameObject.transform.position;
         }
     }
 
