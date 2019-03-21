@@ -33,7 +33,7 @@ public class UsableObject : MonoBehaviour
         this.interactText.text = "Press " + interactKey.ToString() + " to interact with " + this.gameObject.name;
     }
 
-    public void HideText()
+    public virtual void HideText()
     {
         this.interactText.enabled = false;
     }

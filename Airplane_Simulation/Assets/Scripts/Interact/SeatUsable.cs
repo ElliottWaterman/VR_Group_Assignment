@@ -12,7 +12,7 @@ public class SeatUsable : UsableObject
     public GameObject player;
 
     private Transform playerTransform;
-    private Animator areoplaneAnimator;
+    private Animator aeroplaneAnimator;
     private AudioSource planeAudio;
 
     private bool playerEntered = false;
@@ -24,7 +24,7 @@ public class SeatUsable : UsableObject
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
-        areoplaneAnimator = GameObject.FindGameObjectWithTag("Aeroplane").GetComponent<Animator>();
+        aeroplaneAnimator = GameObject.FindGameObjectWithTag("Aeroplane").GetComponent<Animator>();
 
         planeAudio = GetComponent<AudioSource>();
 
@@ -33,7 +33,7 @@ public class SeatUsable : UsableObject
             Debug.LogError("Instatiated player transform not found.");
         }
 
-        if (areoplaneAnimator == null)
+        if (aeroplaneAnimator == null)
         {
             Debug.LogError("Aeroplane animator component not found.");
         }
@@ -45,7 +45,7 @@ public class SeatUsable : UsableObject
         if (playerEntered)
         {
             // If input pressed and plane is idle then sit down or stand up
-            if (this.isInputPressed() && areoplaneAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlaneIdle"))
+            if (this.isInputPressed() && aeroplaneAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlaneIdle"))
             {
                 // Use the object
                 this.OnUse();
@@ -120,7 +120,7 @@ public class SeatUsable : UsableObject
 
     private void PlaneAnimationControl(string transitionText)
     {
-        areoplaneAnimator.SetTrigger(transitionText);
+        aeroplaneAnimator.SetTrigger(transitionText);
     }
 
     private void SitDown()

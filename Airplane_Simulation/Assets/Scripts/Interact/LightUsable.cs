@@ -5,60 +5,89 @@ using UnityEngine;
 public class LightUsable : UsableObject
 {
     private Light overheadLight;
+    public GameObject player;
 
+    private SeatUsable seatUsableScript;
     private bool playerEntered = false;
+    private string oldInteractText;
+
+    private Transform playerTransform;
 
     // Use this for initialization
     void Start ()
     {
+        // Get player and light components
+        if(player == null) player = GameObject.FindGameObjectWithTag("Player");
         overheadLight = GetComponentInChildren<Light>();
 
+        if (player == null)
+        {
+            Debug.LogError("Player not found.");
+            //Destroy(this);
+        }
         if (overheadLight == null)
         {
             Debug.LogError("Light child component could not be found.");
+            //Destroy(this);
         }
+
+        // Set buttons and keys (overriding that in UsableObject class)
+        interactButton = OVRInput.Button.Four;
+        interactKey = KeyCode.Y;
+
+        // Get seat script in order to get box collider
+        seatUsableScript = GetComponentInParent<SeatUsable>();
     }
 
-    private void Update()
+    void Update()
     {
-        if (playerEntered)
+        // Check player is near the seat
+        // TODO check if player is sitting
+        if (playerEntered && this.isInputPressed())
         {
-            if (this.isInputPressed())
-            {
-                // Use the object
-                this.OnUse();
-
-                // Also update text to display object should be closed
-                this.DisplayText();
-            }
+            // Use the object
+            this.OnUse();
         }
     }
 
     public override void OnUse()
     {
-        // Player is present and not sat down
-        if (playerEntered && !objectUsed)
+        if (!objectUsed)
         {
             this.ToggleObjectUsed();
-
             // Turn on light
             overheadLight.enabled = true;
+            // Update text to reflect the new on/off state of the light
+            DisplayText();
         }
-        // Player is present and is sat down
-        else if (playerEntered && objectUsed)
+        else
         {
             this.ToggleObjectUsed();
-
-            // Turn on light
+            // Turn off light
             overheadLight.enabled = false;
+            // Update text to reflect the new on/off state of the light
+            DisplayText();
         }
+    }
+
+    public void StoreCurrentInteractText()
+    {
+        oldInteractText = this.interactText.text;
     }
 
     public override void DisplayText()
     {
         this.interactText.enabled = true;
-        this.interactText.text = "Press " + this.interactKey.ToString() + " to turn " 
-            + (objectUsed ? ON_STRING : OFF_STRING) + " " + this.name;
+        // Append light use text
+        string lightText = "Press " + this.interactKey.ToString() + " to turn " 
+            + (objectUsed ? OFF_STRING : ON_STRING) + " " + this.name + "\n";
+        this.interactText.text = lightText + oldInteractText;
+    }
+
+    public override void HideText()
+    {
+        // Show previous interact text
+        this.interactText.text = oldInteractText;
     }
 
     private void OnTriggerEnter(Collider player)
@@ -67,6 +96,7 @@ public class LightUsable : UsableObject
         {
             playerEntered = true;
 
+            StoreCurrentInteractText();
             // Show interact text on the screen
             this.DisplayText();
         }
@@ -78,6 +108,7 @@ public class LightUsable : UsableObject
         {
             playerEntered = false;
 
+            StoreCurrentInteractText();
             // Hide interact text on the screen
             this.HideText();
         }
