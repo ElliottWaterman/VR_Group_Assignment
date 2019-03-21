@@ -1,0 +1,207 @@
+fileFormatVersion: 2
+guid: decae6e09f6715a4195f6b84d7159140
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Armchair_0_11
+    100004: Armchair_0_9
+    100006: Armchair_1_12
+    100008: Armchair_1_9
+    100010: Armchair_H_9
+    100012: Armchair_L_7
+    100014: Box04_13
+    100016: GeoSphere0_5
+    100018: GeoSphere1_5
+    100020: pied02_1
+    100022: Rectangle0_2
+    100024: Rectangle1_4
+    100026: Shape02_0
+    100028: Shape02_inst_2_0
+    100030: Shape03_3
+    100032: Shape03_inst_2_3
+    100034: Table_High_10
+    100036: Table_High_8
+    100038: Table_Low__8
+    400000: //RootNode
+    400002: Armchair_0_11
+    400004: Armchair_0_9
+    400006: Armchair_1_12
+    400008: Armchair_1_9
+    400010: Armchair_H_9
+    400012: Armchair_L_7
+    400014: Box04_13
+    400016: GeoSphere0_5
+    400018: GeoSphere1_5
+    400020: pied02_1
+    400022: Rectangle0_2
+    400024: Rectangle1_4
+    400026: Shape02_0
+    400028: Shape02_inst_2_0
+    400030: Shape03_3
+    400032: Shape03_inst_2_3
+    400034: Table_High_10
+    400036: Table_High_8
+    400038: Table_Low__8
+    2100000: Armchair_0_11Mat
+    2100002: Armchair_0_9Mat
+    2100004: Armchair_1_12Mat
+    2100006: Armchair_1_9Mat
+    2100008: Armchair_H_9Mat
+    2100010: Armchair_L_7Mat
+    2100012: Box04_13Mat
+    2100014: GeoSphere0_5Mat
+    2100016: GeoSphere1_5Mat
+    2100018: pied02_1Mat
+    2100020: Rectangle0_2Mat
+    2100022: Rectangle1_4Mat
+    2100024: Shape02_0Mat
+    2100026: Shape02_inst_2_0Mat
+    2100028: Shape03_3Mat
+    2100030: Shape03_inst_2_3Mat
+    2100032: Table_High_10Mat
+    2100034: Table_High_8Mat
+    2100036: Table_Low__8Mat
+    2300000: Armchair_0_11
+    2300002: Armchair_0_9
+    2300004: Armchair_1_12
+    2300006: Armchair_1_9
+    2300008: Armchair_H_9
+    2300010: Armchair_L_7
+    2300012: Box04_13
+    2300014: GeoSphere0_5
+    2300016: GeoSphere1_5
+    2300018: pied02_1
+    2300020: Rectangle0_2
+    2300022: Rectangle1_4
+    2300024: Shape02_0
+    2300026: Shape02_inst_2_0
+    2300028: Shape03_3
+    2300030: Shape03_inst_2_3
+    2300032: Table_High_10
+    2300034: Table_High_8
+    2300036: Table_Low__8
+    3300000: Armchair_0_11
+    3300002: Armchair_0_9
+    3300004: Armchair_1_12
+    3300006: Armchair_1_9
+    3300008: Armchair_H_9
+    3300010: Armchair_L_7
+    3300012: Box04_13
+    3300014: GeoSphere0_5
+    3300016: GeoSphere1_5
+    3300018: pied02_1
+    3300020: Rectangle0_2
+    3300022: Rectangle1_4
+    3300024: Shape02_0
+    3300026: Shape02_inst_2_0
+    3300028: Shape03_3
+    3300030: Shape03_inst_2_3
+    3300032: Table_High_10
+    3300034: Table_High_8
+    3300036: Table_Low__8
+    4300000: Armchair_0_11
+    4300002: Armchair_0_9
+    4300004: Armchair_1_12
+    4300006: Armchair_1_9
+    4300008: Armchair_H_9
+    4300010: Armchair_L_7
+    4300012: Box04_13
+    4300014: GeoSphere0_5
+    4300016: GeoSphere1_5
+    4300018: pied02_1
+    4300020: Rectangle0_2
+    4300022: Rectangle1_4
+    4300024: Shape02_0
+    4300026: Shape02_inst_2_0
+    4300028: Shape03_3
+    4300030: Shape03_inst_2_3
+    4300032: Table_High_10
+    4300034: Table_High_8
+    4300036: Table_Low__8
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
