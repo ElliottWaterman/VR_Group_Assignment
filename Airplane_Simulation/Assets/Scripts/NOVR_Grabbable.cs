@@ -15,17 +15,15 @@ public class NOVR_Grabbable : MonoBehaviour
             GetComponent<Rigidbody>().useGravity = false;
             GetComponent<Collider>().enabled = false;
             transform.parent = GameObject.Find("FirstPersonCharacter").transform;
+            transform.localRotation = Quaternion.Euler(0, 90, 0);
             grabbed = true;
         }
     }
-    private void Update()
+    private void OnMouseUp()
     {
-        if (Input.GetKeyDown(KeyCode.P) /*&& grabbed*/){
-            Debug.Log("Click Off");
             transform.parent = null;
             GetComponent<Rigidbody>().useGravity = true;
             GetComponent<Collider>().enabled = true;
             grabbed = false;
-        }
     }
 }
