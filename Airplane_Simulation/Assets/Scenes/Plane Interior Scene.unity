@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.35044774, g: 0.44968623, b: 0.5884307, a: 1}
+  m_IndirectSpecularColor: {r: 0.35037664, g: 0.44950426, b: 0.58833385, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1208,7 +1208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OculusController: {fileID: 768221890, guid: 7c83164814c907046b89c2e15c17762a, type: 3}
-  FPSController: {fileID: 888835800, guid: fb4f53cad64d27e4aa9fb43ef6d1a358, type: 3}
+  FPSController: {fileID: 8683265128867415823, guid: 4f3710d4f29780b4dad608da64c36f82,
+    type: 3}
   canvasText: {fileID: 3587296899878470786}
 --- !u!4 &656081602
 Transform:
@@ -1882,6 +1883,7 @@ GameObject:
   - component: {fileID: 1042735476}
   - component: {fileID: 1042735475}
   - component: {fileID: 1042735477}
+  - component: {fileID: 1042735479}
   - component: {fileID: 1042735478}
   m_Layer: 0
   m_Name: SeatCollider
@@ -1943,9 +1945,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9f1a5d4f2c1ab864e87a4b835fdd0efd, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.52
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2029,6 +2031,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1042735479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042735474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c83b208ca55f034abfea75df9b62689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planeAudio: {fileID: 1042735478}
+  taxiSound: {fileID: 8300000, guid: e925743a8e0b9b24198be33d082a1eeb, type: 3}
+  takeOffSound: {fileID: 8300000, guid: f38f0c89030d01a499ef19a675eae764, type: 3}
+  landingSound: {fileID: 8300000, guid: 9f1a5d4f2c1ab864e87a4b835fdd0efd, type: 3}
+  roomNoise: {fileID: 8300000, guid: 9f1a5d4f2c1ab864e87a4b835fdd0efd, type: 3}
 --- !u!1001 &1076480313
 PrefabInstance:
   m_ObjectHideFlags: 0

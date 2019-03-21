@@ -13,7 +13,7 @@ public class SeatUsable : UsableObject
 
     private Transform playerTransform;
     private Animator areoplaneAnimator;
-    private AudioSource audioSource;
+    private AudioSource planeAudio;
 
     private bool playerEntered = false;
 
@@ -25,6 +25,8 @@ public class SeatUsable : UsableObject
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         areoplaneAnimator = GameObject.FindGameObjectWithTag("Aeroplane").GetComponent<Animator>();
+
+        planeAudio = GetComponent<AudioSource>();
 
         if (playerTransform == null)
         {
@@ -61,16 +63,16 @@ public class SeatUsable : UsableObject
         }
 
         // Always check that the plane is idle so the player can see text to stand up and move
-        if (areoplaneAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlaneIdle"))
-        {
-            // Show interact text on the screen
-            this.DisplayText();
-        }
-        else
-        {
-            // Hide interact text on the screen
-            this.HideText();
-        }
+        //if (animationCounter != 0 && areoplaneAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlaneIdle"))
+        //{
+        //    // Show interact text on the screen
+        //    this.DisplayText();
+        //}
+        //else
+        //{
+        //    // Hide interact text on the screen
+        //    this.HideText();
+        //}
     }
 
     public override void OnUse()
@@ -88,8 +90,8 @@ public class SeatUsable : UsableObject
             {
                 PlaneAnimationControl(TAXI_TO_RUNWAY);
 
-                audioSource.Play();
-                audioSource.volume = 0.52f;
+                planeAudio.Play();
+                planeAudio.volume = 0.52f;
 
                 animationCounter++;
             }
