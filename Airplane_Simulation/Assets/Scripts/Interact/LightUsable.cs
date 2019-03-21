@@ -7,11 +7,8 @@ public class LightUsable : UsableObject
     private Light overheadLight;
     public GameObject player;
 
-    private SeatUsable seatUsableScript;
     private bool playerEntered = false;
     private string oldInteractText;
-
-    private Transform playerTransform;
 
     // Use this for initialization
     void Start ()
@@ -34,15 +31,11 @@ public class LightUsable : UsableObject
         // Set buttons and keys (overriding that in UsableObject class)
         interactButton = OVRInput.Button.Four;
         interactKey = KeyCode.Y;
-
-        // Get seat script in order to get box collider
-        seatUsableScript = GetComponentInParent<SeatUsable>();
     }
 
     void Update()
     {
         // Check player is near the seat
-        // TODO check if player is sitting
         if (playerEntered && this.isInputPressed())
         {
             // Use the object

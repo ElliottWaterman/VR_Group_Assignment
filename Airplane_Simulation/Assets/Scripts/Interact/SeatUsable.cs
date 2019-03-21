@@ -103,7 +103,7 @@ public class SeatUsable : UsableObject
             }
 
             // Hide interact text on the screen
-            this.HideText();
+            //this.HideText();
         }
         // Player is present and is sat down
         else if (playerEntered && objectUsed)

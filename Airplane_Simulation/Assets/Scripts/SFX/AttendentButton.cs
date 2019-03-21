@@ -2,49 +2,82 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttendentButton : UsableObject{
+public class AttendentButton : UsableObject
+{
+    public AudioSource Source;
+    public AudioClip AttendentSound;
+    public GameObject player;
 
-    private DoorColliderTrigger doorTrigger;
-    private Animator animator;
-    public AudioSource AttendentSound;
-    private bool playerEnter;
+    private bool playerEntered = false;
+    private string oldInteractText;
 
-    public void Update()
+    // Use this for initialization
+    void Start()
     {
-        if (isInputPressed() && playerEnter) {
-            OnUse();
-        }
-    }
+        // Get player and light components
+        if (player == null) player = GameObject.FindGameObjectWithTag("Player");
 
-    public override void OnUse()
-    {
-        AttendentSound.Play();
-        Debug.Log("Attended Sound");
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player") {
-
-            playerEnter = true;
-            DisplayText();
-        }
-    }
-
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
+        if (player == null)
         {
-
-            playerEnter = false;
-            HideText();
+            Debug.LogError("Player not found.");
+            //Destroy(this);
         }
+
+        // Set buttons and keys (overriding that in UsableObject class)
+        interactButton = OVRInput.Button.Three;
+        interactKey = KeyCode.X;
+    }
+
+    void Update()
+    {
+        // Check player is near the seat
+        if (playerEntered && this.isInputPressed())
+        {
+            // Use the object
+            Source.PlayOneShot(AttendentSound);
+        }
+    }
+
+    public void StoreCurrentInteractText()
+    {
+        oldInteractText = this.interactText.text;
     }
 
     public override void DisplayText()
     {
         this.interactText.enabled = true;
-        this.interactText.text = "Press " + this.interactKey.ToString() + " for "
-            + "attendence";
+        // Append light use text
+        string lightText = "Press " + this.interactKey.ToString() + " to call Attendant" + "\n";
+        this.interactText.text = lightText + oldInteractText;
+    }
+
+    public override void HideText()
+    {
+        // Show previous interact text
+        this.interactText.text = oldInteractText;
+    }
+
+    private void OnTriggerEnter(Collider player)
+    {
+        if (player.gameObject.tag == "Player")
+        {
+            playerEntered = true;
+
+            StoreCurrentInteractText();
+            // Show interact text on the screen
+            this.DisplayText();
+        }
+    }
+
+    private void OnTriggerExit(Collider player)
+    {
+        if (player.gameObject.tag == "Player")
+        {
+            playerEntered = false;
+
+            StoreCurrentInteractText();
+            // Hide interact text on the screen
+            this.HideText();
+        }
     }
 }
