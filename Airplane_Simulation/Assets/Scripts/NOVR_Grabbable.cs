@@ -14,7 +14,7 @@ public class NOVR_Grabbable : MonoBehaviour
             Debug.Log("Click On");
             GetComponent<Rigidbody>().useGravity = false;
             GetComponent<Collider>().enabled = false;
-            transform.parent = GameObject.Find("FPSController(Clone)").transform;
+            transform.parent = GameObject.Find("FirstPersonCharacter").transform;
             grabbed = true;
         }
         else {
