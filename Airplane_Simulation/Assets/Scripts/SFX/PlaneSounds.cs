@@ -14,6 +14,7 @@ public class PlaneSounds : MonoBehaviour
     public AudioClip turbulanceSample;
     public AudioClip noiseLoop;
 
+    public SeatUsable seatScript;
 
     // Start is called before the first frame update
     void Start()
@@ -28,22 +29,28 @@ public class PlaneSounds : MonoBehaviour
     }
 
     void playTaxiSound() {
-
+        Source.volume = 0.3f;
         Source.PlayOneShot(taxiSample);
     }
     void playSafetyAnouncment()
     {
-
+        Source.volume = 0.7f;
         Source.PlayOneShot(safetyAnouncment);
     }
 
     void playTakeOff() {
-
+        Source.volume = 0.7f;
         Source.PlayOneShot(takeOffSample);
     }
 
-    void playLanding() {
+    void allowStandUp()
+    {
+        seatScript.playerEntered = true;
+        seatScript.DisplayText();
+    }
 
+    void playLanding() {
+        Source.volume = 0.6f;
         Source.PlayOneShot(landingSample);
     }
 
@@ -58,7 +65,7 @@ public class PlaneSounds : MonoBehaviour
     }
 
     void playBackgroundLoop() {
-
+        Source.volume = 0.5f;
         Source.PlayOneShot(noiseLoop);
     }
 }

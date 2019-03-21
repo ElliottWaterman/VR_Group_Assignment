@@ -1738,6 +1738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactText: {fileID: 3587296900017873532}
   player: {fileID: 656081600}
+  playerEntered: 0
 --- !u!82 &1042735478
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6264,6 +6265,7 @@ MonoBehaviour:
     type: 3}
   turbulanceSample: {fileID: 8300000, guid: 669df97500aa3e7429576b20795504f4, type: 3}
   noiseLoop: {fileID: 8300000, guid: 5cd54ddcaa3cf044fa080e58c63fcc18, type: 3}
+  seatScript: {fileID: 1042735477}
 --- !u!1 &3185818301109929802
 GameObject:
   m_ObjectHideFlags: 0
