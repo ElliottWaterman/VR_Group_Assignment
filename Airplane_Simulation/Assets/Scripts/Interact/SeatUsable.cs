@@ -134,7 +134,7 @@ public class SeatUsable : UsableObject
     {
         this.interactText.enabled = true;
         this.interactText.text = "Press " + this.interactKey.ToString() + " to " 
-            + (objectUsed ? STAND_UP : SIT_DOWN) + " " + this.name;
+            + (objectUsed ? STAND_UP : SIT_DOWN) + " Seat";
     }
 
     private void OnTriggerEnter(Collider player)

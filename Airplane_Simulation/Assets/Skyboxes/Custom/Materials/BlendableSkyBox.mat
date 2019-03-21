@@ -77,7 +77,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AtmosphereThickness: 1
-    - _Blend: 0.0016399598
+    - _Blend: 0.00025821358
     - _Exposure: 1
     - _ImageType: 0
     - _Layout: 0
