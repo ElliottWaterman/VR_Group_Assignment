@@ -28,6 +28,15 @@ public class DoorUsable : UsableObject
         animator.SetTrigger(direction);
     }
 
+    void Update()
+    {
+        if (objectUsed && !doorTrigger.HasPlayerEntered())
+        {
+            this.ToggleObjectUsed();
+            DoorAnimationControl(CLOSE_STRING);
+        }
+    }
+
     public override void OnUse()
     {
         // Check collider box in door trigger

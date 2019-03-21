@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class SeatUsable : UsableObject
 {
@@ -56,23 +57,9 @@ public class SeatUsable : UsableObject
         if (objectUsed)
         {
             // Lock instantiated player to seat position
-            playerTransform.position = this.gameObject.transform.position;
-
-            // Lock player hierarchy to seat
-            //player.transform.position = this.gameObject.transform.position;
+            if (!XRDevice.isPresent)
+                playerTransform.position = this.gameObject.transform.position;
         }
-
-        // Always check that the plane is idle so the player can see text to stand up and move
-        //if (animationCounter != 0 && areoplaneAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlaneIdle"))
-        //{
-        //    // Show interact text on the screen
-        //    this.DisplayText();
-        //}
-        //else
-        //{
-        //    // Hide interact text on the screen
-        //    this.HideText();
-        //}
     }
 
     public override void OnUse()
@@ -89,10 +76,6 @@ public class SeatUsable : UsableObject
             if (animationCounter == 0)
             {
                 PlaneAnimationControl(TAXI_TO_RUNWAY);
-
-                planeAudio.Play();
-                planeAudio.volume = 0.52f;
-
                 animationCounter++;
             }
             // Walking around during flight then sit down to land
@@ -126,13 +109,15 @@ public class SeatUsable : UsableObject
     private void SitDown()
     {
         // Set position just before sitting down so when stand up it moves there
-        player.transform.position = playerTransform.position;
+        if (!XRDevice.isPresent)
+            player.transform.position = playerTransform.position;
 
         // Set player parent transform to seat transform
         player.transform.parent = this.gameObject.transform;
-        
+
         // Set instantiated player transform to seat transform
-        playerTransform.parent = this.gameObject.transform;
+        if (!XRDevice.isPresent)
+            playerTransform.parent = this.gameObject.transform;
     }
 
     private void StandUp()
@@ -141,12 +126,8 @@ public class SeatUsable : UsableObject
         player.transform.parent = null;
 
         // Set instantiated player transform to player transform
-        playerTransform.parent = player.transform;
-    }
-
-    public void GetUpAtAnimationEnd()
-    {
-        // TODO
+        if (!XRDevice.isPresent)
+            playerTransform.parent = player.transform;
     }
 
     public override void DisplayText()
