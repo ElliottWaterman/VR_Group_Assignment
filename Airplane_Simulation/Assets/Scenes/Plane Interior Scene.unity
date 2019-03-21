@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.47706646, g: 0.57718176, b: 0.6925714, a: 1}
+  m_IndirectSpecularColor: {r: 0.35037664, g: 0.44950426, b: 0.58833385, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -973,6 +973,7 @@ GameObject:
   m_Component:
   - component: {fileID: 505484186}
   - component: {fileID: 505484187}
+  - component: {fileID: 505484185}
   m_Layer: 0
   m_Name: Overhead Light
   m_TagString: Untagged
@@ -980,6 +981,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &505484185
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505484184}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8131797, y: 2.267872, z: 1.7013266}
+  m_Center: {x: 0.42968684, y: -0.27132317, z: -0.009516835}
 --- !u!4 &505484186
 Transform:
   m_ObjectHideFlags: 0
@@ -1008,6 +1022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactText: {fileID: 3587296900017873532}
+  player: {fileID: 656081600}
 --- !u!1 &654008312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1411,7 +1426,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &888778767
 PrefabInstance:
@@ -1674,7 +1689,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1025918155
 GameObject:
@@ -1746,6 +1761,7 @@ GameObject:
   - component: {fileID: 1042735475}
   - component: {fileID: 1042735477}
   - component: {fileID: 1042735478}
+  - component: {fileID: 1042735479}
   m_Layer: 0
   m_Name: SeatCollider
   m_TagString: Untagged
@@ -1892,6 +1908,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1042735479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042735474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46cc37108e8c45841bdd79a9edd75fa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: {fileID: 3587296900017873532}
+  Source: {fileID: 1042735478}
+  AttendentSound: {fileID: 8300000, guid: b7553a81f5cbada4882b6dcb4614e884, type: 3}
+  player: {fileID: 656081600}
 --- !u!1001 &1076480313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2090,7 +2122,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1238679277
 GameObject:
@@ -3117,7 +3149,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1962372177
 GameObject:
@@ -3419,8 +3451,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.0151873, y: 2.7686806, z: 2.1839762}
-  m_Center: {x: 0.097565174, y: -0.01293706, z: 0.028800488}
+  m_Size: {x: 4.385531, y: 2.7686806, z: 2.1839762}
+  m_Center: {x: 1.0746118, y: -0.01293706, z: 0.02880049}
 --- !u!114 &2141260374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31092,7 +31124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactText: {fileID: 3587296900017873532}
+  Source: {fileID: 0}
   AttendentSound: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &3185818301109932838
 GameObject:
   m_ObjectHideFlags: 0
