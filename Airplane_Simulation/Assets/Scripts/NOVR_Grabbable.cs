@@ -17,7 +17,10 @@ public class NOVR_Grabbable : MonoBehaviour
             transform.parent = GameObject.Find("FirstPersonCharacter").transform;
             grabbed = true;
         }
-        else {
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P) /*&& grabbed*/){
             Debug.Log("Click Off");
             transform.parent = null;
             GetComponent<Rigidbody>().useGravity = true;
