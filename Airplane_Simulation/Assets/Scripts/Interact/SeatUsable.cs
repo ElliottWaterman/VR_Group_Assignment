@@ -16,7 +16,7 @@ public class SeatUsable : UsableObject
     private Animator aeroplaneAnimator;
     private AudioSource planeAudio;
 
-    private bool playerEntered = false;
+    public bool playerEntered = false;
 
     private int animationCounter = 0;
 
@@ -46,7 +46,7 @@ public class SeatUsable : UsableObject
         if (playerEntered)
         {
             // If input pressed and plane is idle then sit down or stand up
-            if (this.isInputPressed() && aeroplaneAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlaneIdle"))
+            if (this.isInputPressed() && (aeroplaneAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlaneIdle") || aeroplaneAnimator.GetCurrentAnimatorStateInfo(0).IsName("InAirIdle")))
             {
                 // Use the object
                 this.OnUse();
@@ -122,12 +122,27 @@ public class SeatUsable : UsableObject
 
     private void StandUp()
     {
-        // Set player parent transform to nothing
-        player.transform.parent = null;
+        if (animationCounter == 1 && !XRDevice.isPresent)
+        {
+            Vector3 standPosition = player.transform.position;
 
-        // Set instantiated player transform to player transform
-        if (!XRDevice.isPresent)
+            // Set player parent transform to nothing
+            player.transform.parent = null;
+
+            player.transform.position = standPosition;
+
+            // Set instantiated player transform to player transform
             playerTransform.parent = player.transform;
+        }
+        else
+        {
+            // Set player parent transform to nothing
+            player.transform.parent = null;
+
+            // Set instantiated player transform to player transform
+            if (!XRDevice.isPresent)
+                playerTransform.parent = player.transform;
+        }
     }
 
     public override void DisplayText()
