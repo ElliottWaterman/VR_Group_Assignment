@@ -4,26 +4,61 @@ using UnityEngine;
 
 public class PlaneSounds : MonoBehaviour
 {
-    public AudioSource planeAudio;
+    public AudioSource Source;
 
-    [SerializeField] private AudioClip taxiSound;
-    [SerializeField] private AudioClip takeOffSound;
-    [SerializeField] private AudioClip landingSound;
-    [SerializeField] private AudioClip roomNoise;
+    public AudioClip taxiSample;
+    public AudioClip safetyAnouncment;
+    public AudioClip takeOffSample;
+    public AudioClip landingSample;
+    public AudioClip turbulanceAnouncement;
+    public AudioClip turbulanceSample;
+    public AudioClip noiseLoop;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        // Start with quiet plane room noise
-        planeAudio = GetComponent<AudioSource>();
-        planeAudio.clip = roomNoise;
-        planeAudio.volume = 0.1f;
-        planeAudio.Play();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    void playTaxiSound() {
+
+        Source.PlayOneShot(taxiSample);
+    }
+    void playSafetyAnouncment()
+    {
+
+        Source.PlayOneShot(safetyAnouncment);
+    }
+
+    void playTakeOff() {
+
+        Source.PlayOneShot(takeOffSample);
+    }
+
+    void playLanding() {
+
+        Source.PlayOneShot(landingSample);
+    }
+
+    void playTurbulanceAnouncment() {
+
+        Source.PlayOneShot(turbulanceAnouncement);
+    }
+
+    void playTurbulance() {
+
+        Source.PlayOneShot(turbulanceSample);
+    }
+
+    void playBackgroundLoop() {
+
+        Source.PlayOneShot(noiseLoop);
     }
 }

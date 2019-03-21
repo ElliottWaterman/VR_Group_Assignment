@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.35037664, g: 0.44950426, b: 0.58833385, a: 1}
+  m_IndirectSpecularColor: {r: 0.47706646, g: 0.57718176, b: 0.6925714, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1219,7 +1219,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656081600}
   m_LocalRotation: {x: -0.000000020489097, y: -0.7071068, z: 0.0000000027939677, w: -0.7071068}
-  m_LocalPosition: {x: -50.97, y: 5.96, z: -17.99}
+  m_LocalPosition: {x: 12.7, y: 6.18, z: -18.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3587296899878470787}
@@ -1807,8 +1807,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021271461}
-  m_LocalRotation: {x: 0, y: 0.51237446, z: 0, w: 0.85876215}
-  m_LocalPosition: {x: -56.229584, y: -20.32, z: -27.866388}
+  m_LocalRotation: {x: 0.053986654, y: 0.94591826, z: 0.23298743, w: -0.21918242}
+  m_LocalPosition: {x: 42.171036, y: -39.0217, z: 29.843138}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1883,7 +1883,6 @@ GameObject:
   - component: {fileID: 1042735476}
   - component: {fileID: 1042735475}
   - component: {fileID: 1042735477}
-  - component: {fileID: 1042735479}
   - component: {fileID: 1042735478}
   m_Layer: 0
   m_Name: SeatCollider
@@ -2031,23 +2030,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1042735479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042735474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c83b208ca55f034abfea75df9b62689, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planeAudio: {fileID: 1042735478}
-  taxiSound: {fileID: 8300000, guid: e925743a8e0b9b24198be33d082a1eeb, type: 3}
-  takeOffSound: {fileID: 8300000, guid: f38f0c89030d01a499ef19a675eae764, type: 3}
-  landingSound: {fileID: 8300000, guid: 9f1a5d4f2c1ab864e87a4b835fdd0efd, type: 3}
-  roomNoise: {fileID: 8300000, guid: 9f1a5d4f2c1ab864e87a4b835fdd0efd, type: 3}
 --- !u!1001 &1076480313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6443,6 +6425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3185818301110360934}
   - component: {fileID: 3185818301109929799}
+  - component: {fileID: 3185818301109929801}
   m_Layer: 0
   m_Name: Boeing 737-800
   m_TagString: Aeroplane
@@ -6485,6 +6468,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3185818301109929801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3185818301109929798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c83b208ca55f034abfea75df9b62689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Source: {fileID: 1042735478}
+  taxiSample: {fileID: 8300000, guid: e925743a8e0b9b24198be33d082a1eeb, type: 3}
+  safetyAnouncment: {fileID: 8300000, guid: a5efb8e5ff28e954d90b1c8b8c091090, type: 3}
+  takeOffSample: {fileID: 8300000, guid: f38f0c89030d01a499ef19a675eae764, type: 3}
+  landingSample: {fileID: 8300000, guid: a2e69f01ae4d2f240815d837f73bdece, type: 3}
+  turbulanceAnouncement: {fileID: 8300000, guid: 613e96d9f556a754aa68b80ef0875e87,
+    type: 3}
+  turbulanceSample: {fileID: 8300000, guid: 669df97500aa3e7429576b20795504f4, type: 3}
+  noiseLoop: {fileID: 8300000, guid: 5cd54ddcaa3cf044fa080e58c63fcc18, type: 3}
 --- !u!1 &3185818301109929802
 GameObject:
   m_ObjectHideFlags: 0
