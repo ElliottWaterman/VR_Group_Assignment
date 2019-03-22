@@ -14,22 +14,9 @@ public class SkyboxFade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (player == null)
-        {
-            Debug.Log("Player not found. Attempting to use Player tag.");
-            player = GameObject.FindGameObjectWithTag("Player");
-            if(player == null)
-            {
-                Debug.LogError("Player tag not found.");
-                Destroy(this);
-            }
+        DecidePlayerController dpcScript = GetComponent<DecidePlayerController>();
 
-        }
-        else
-        {
-            // Set the player equal to the instantiated  player controller (ie where the player is)
-            player = player.transform.GetChild(0).gameObject;
-        }
+        player = dpcScript.getPlayerController();
     }
 
     // Update is called once per frame

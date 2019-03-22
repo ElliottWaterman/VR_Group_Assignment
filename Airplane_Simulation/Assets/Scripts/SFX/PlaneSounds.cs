@@ -34,12 +34,12 @@ public class PlaneSounds : MonoBehaviour
     }
     void playSafetyAnouncment()
     {
-        Source.volume = 0.7f;
+        Source.volume = 0.6f;
         Source.PlayOneShot(safetyAnouncment);
     }
 
     void playTakeOff() {
-        Source.volume = 0.7f;
+        Source.volume = 1.0f;
         Source.PlayOneShot(takeOffSample);
     }
 
@@ -50,7 +50,7 @@ public class PlaneSounds : MonoBehaviour
     }
 
     void playLanding() {
-        Source.volume = 0.6f;
+        Source.volume = 0.7f;
         Source.PlayOneShot(landingSample);
     }
 

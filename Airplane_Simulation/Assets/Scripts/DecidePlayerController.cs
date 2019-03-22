@@ -42,4 +42,9 @@ public class DecidePlayerController : MonoBehaviour
             canvasText.transform.SetParent(playerCanvasParent.transform);
         }
     }
+
+    public GameObject getPlayerController()
+    {
+        return playerController;
+    }
 }
