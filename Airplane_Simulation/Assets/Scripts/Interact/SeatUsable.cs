@@ -59,6 +59,9 @@ public class SeatUsable : UsableObject
             // Lock instantiated player to seat position
             if (!XRDevice.isPresent)
                 playerTransform.position = this.gameObject.transform.position;
+
+            // If object is used always set player as entered
+            playerEntered = true;
         }
     }
 
@@ -124,12 +127,19 @@ public class SeatUsable : UsableObject
     {
         if (animationCounter == 1 && !XRDevice.isPresent)
         {
-            Vector3 standPosition = player.transform.position;
-
             // Set player parent transform to nothing
             player.transform.parent = null;
 
-            player.transform.position = standPosition;
+            // Get world postion (not relative to plane)
+            Vector3 standPosition = player.transform.position;
+
+            //player.transform.position = standPosition;
+
+            // Take off seat
+            playerTransform.parent = null;
+
+            // Set to stand position
+            playerTransform.position = standPosition;
 
             // Set instantiated player transform to player transform
             playerTransform.parent = player.transform;

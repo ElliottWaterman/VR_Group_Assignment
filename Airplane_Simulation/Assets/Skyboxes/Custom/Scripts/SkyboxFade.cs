@@ -14,9 +14,9 @@ public class SkyboxFade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DecidePlayerController dpcScript = GetComponent<DecidePlayerController>();
+        //DecidePlayerController dpcScript = GetComponent<DecidePlayerController>();
 
-        player = dpcScript.getPlayerController();
+        //player = dpcScript.getPlayerController();
     }
 
     // Update is called once per frame
